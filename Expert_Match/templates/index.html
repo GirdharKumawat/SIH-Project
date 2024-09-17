@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Match Score</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div>
+    {% include "navbar.html" %}
+
+    <div class="container mt-3">
+        {% if messages %}
+            {% for message in messages %}
+            <div
+            id="myAlert"
+            class=" alert alert-warning alert-dismissible fade show text-center mt-2"
+            role="alert"
+            style="position: relative"
+          >
+          {{message}}
+        
+          </div>
+            {% endfor %}
+        {% endif %}  
+        
+      </div>
+
+</div> 
+{% endblock %}

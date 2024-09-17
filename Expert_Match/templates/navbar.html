@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg p-2 fw-bold" style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.4);">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light fw-bold" href="{% url 'home' %}" style="font-size: 1.5rem;">Expert-Match</a>
+  
+      <!-- Toggle button for mobile view -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Navbar content -->
+      <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-light fw-bold" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="{% url 'candidates' %}" style="transition: color 0.3s;">
+              List of Candidates
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="{% url 'home' %}" style="transition: color 0.3s;">
+              List of Interviewers
+            </a>
+          </li>
+        </ul>
+  
+        <!-- User Authentication Links -->
+        <ul class="navbar-nav mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a class="nav-link btn bg-warning text-white fw-bold" href="{% url 'userLogout' %}" style="background-color: #ffcc80; border-radius: 20px; padding: 0.5rem 1.2rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s;">
+              Logout
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Custom styles -->
+  <style>
+    .nav-link:hover {
+      color: #ffcc80 !important; /* Slight hover effect on links */
+    }
+  
+    /* Hover effect for buttons */
+    .btn:hover {
+      background-color: #ffb347 !important; /* Darker shade of orange */
+    }
+  </style>
+  
