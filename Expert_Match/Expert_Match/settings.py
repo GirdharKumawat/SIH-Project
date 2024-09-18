@@ -75,13 +75,24 @@ WSGI_APPLICATION = 'Expert_Match.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Project',          # Default database name
+#         'USER': 'postgres',         # Default superuser
+#         'PASSWORD': 'data@12345',   # The password you provided during installation
+#         'HOST': 'localhost',
+#         'PORT': '5432',             # Default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Project',          # Default database name
-        'USER': 'postgres',         # Default superuser
-        'PASSWORD': 'data@12345',   # The password you provided during installation
-        'HOST': 'localhost',
+        'NAME': 'sih_06ap',          # Default database name
+        'USER': 'sih_06ap_user',         # Default superuser
+        'PASSWORD': 'Wazea6EegzGEqHRjdcJE9eThHdXXVeJT',   # The password you provided during installation
+        'HOST': 'dpg-crlbjl56l47c73fvh11g-a.singapore-postgres.render.com',
         'PORT': '5432',             # Default PostgreSQL port
     }
 }

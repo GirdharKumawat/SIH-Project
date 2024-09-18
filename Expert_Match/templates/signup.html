@@ -8,7 +8,8 @@
         <div class="row justify-content-center align-items-center h-100">
             <!-- Increase the column size for larger screens -->
             <div class="col-12 col-md-8 col-lg-6 col-xl-6"> <!-- Changed to col-xl-6 for wider form -->
-                <div>{% if messages %}
+                <div class="fixed-top  w-50 m-auto  ">
+                    {% if messages %}
                     {% for message in messages %}
                     <div
                     id="myAlert"
@@ -23,7 +24,7 @@
                 {% endif %}  
                 </div>
                 
-                <div class="card bg-light text-dark" style="border-radius: 1rem;">
+                <div class="card bg-light text-dark mt-2" style="border-radius: 1rem;">
                     <div class="card-body p-3 text-center">
                         <!-- Displaying form errors -->
                       
@@ -31,25 +32,25 @@
                         <form method="POST" action="{% url 'signup' %}">
                             {% csrf_token %}
                             <div class="mb-2 mt-3 pb-2">
-                                <h2 style="font-weight: 700;" class="text-dark mb-3 text-uppercase">Sign-up</h2>
+                                <h2 style="font-weight: 700;" class="text-dark mb-2 text-uppercase">Sign-up</h2>
 
-                                <div class="form-outline mb-3">
+                                <div class="form-outline mb-2">
                                     <input type="text" name="name" id="typeName" placeholder="Full Name" class="form-control form-control-lg" required />
                                 </div>
 
-                                <div class="form-outline mb-3">
+                                <div class="form-outline mb-2">
                                     <input type="text" name="username" id="typeUsername" placeholder="Username" class="form-control form-control-lg" required />
                                 </div>
 
-                                <div class="form-outline mb-3">
+                                <div class="form-outline mb-2">
                                     <input type="email" name="email" placeholder="Email" class="form-control form-control-lg" required />
                                 </div>
 
-                                <div class="form-outline mb-3">
+                                <div class="form-outline mb-2">
                                     <input name="password1" type="password" id="typePassword" placeholder="Password" class="form-control form-control-lg" required />
                                 </div>
 
-                                <div class="form-outline mb-3">
+                                <div class="form-outline mb-2">
                                     <input name="password2" type="password" id="typeConfirmPassword" placeholder="Confirm Password" class="form-control form-control-lg" required />
                                 </div>
 

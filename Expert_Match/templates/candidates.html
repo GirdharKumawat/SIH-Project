@@ -2,10 +2,13 @@
 {% block title %}List Of Candidates{% endblock %}
 
 {% block content %}
-<div  >  
-    <div><a class="nav-link btn btn-warning text-dark fw-bold" href="{% url 'home' %}" style="border-radius: 20px; padding: 0.5rem 1.2rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s;">
+<div >  
+  {% include "navbar.html" %}
+  <div class="px-4 pt-3 w-50">
+     <a class="nav-link btn btn-warning text-dark w-25 fw-bold" href="{% url 'home' %}" style="border-radius: 20px; padding: 0.5rem 1.2rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s;">
         Add Candidates
-      </a></div>
+      </a> 
+    </div>
     <div class="container text-center m-4 ">
         
     <table class="table table-secondary table-striped">
