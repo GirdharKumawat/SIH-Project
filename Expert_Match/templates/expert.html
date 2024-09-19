@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}List of Experts{% endblock %}
+
+{% block content %}
+<div>  
+  {% include "navbar.html" %}
+  <div class="container mt-5">
+    <div class="d-flex">
+        <h3 class="text-center w-25">Experts</h3>
+  
+        <a class="nav-link btn bg-warning text-white fw-bold mb-3" href="{% url 'add_expert' %}" style="background-color: #ffcc80; border-radius: 20px; padding: 0.5rem 1.2rem; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s;">
+          Add Expert
+        </a>
+    </div>
+    <table class="table table-warning table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Domain Expertise</th>
+                <th>Experience (Years)</th>
+                <th>Publications</th>
+                <th>Industry Projects</th>
+                <th>Education</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expert in experts %}
+            <tr>
+                <td>{{ expert.name }}</td>
+                <td>
+                    {% for expertise in expert.domain_expertise.all %}
+                        {{ expertise.field }}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ expert.years_of_experience }}</td>
+                <td>{{ expert.publications_count }}</td>
+                <td>
+                    {% for project in expert.industry_projects.all %}
+                        {{ project.project }}<br>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for edu in expert.education.all %}
+                        {{ edu.degree }} in {{ edu.field }} from {{ edu.institute }}<br>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

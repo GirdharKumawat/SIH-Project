@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}Add Interviewer{% endblock %}
+{% block content %}
+{% include "navbar.html" %}
+<div class="container mt-5">
+    <div class="d-flex align-item-center justify-content-center w-25">
+        <h1 class="text-center mb-4  text-warning" >Add Expert</h1>
+    </div>
+    <form method="post" action="{% url 'add_expert' %}">
+        {% csrf_token %}
+        
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Basic Information
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="name" class="text-dark">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialization_level" class="text-dark">Specialization Level:</label>
+                    <select class="form-control" id="specialization_level" name="specialization_level" required>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="years_of_experience" class="text-dark">Years of Experience:</label>
+                    <input type="number" class="form-control" id="years_of_experience" name="years_of_experience" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="publications_count" class="text-dark">Number of Publications:</label>
+                    <input type="number" class="form-control" id="publications_count" name="publications_count" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="previous_interview_experience_years" class="text-dark">Previous Interview Experience (Years):</label>
+                    <input type="number" class="form-control" id="previous_interview_experience_years" name="previous_interview_experience_years" required>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Domain Expertise
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="domain_expertise" class="text-dark">Field of Expertise (comma-separated):</label>
+                    <input type="text" class="form-control" id="domain_expertise" name="domain_expertise" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Roles
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="roles" class="text-dark">Roles (comma-separated):</label>
+                    <input type="text" class="form-control" id="roles" name="roles" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Industries
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="industries" class="text-dark">Industries (comma-separated):</label>
+                    <input type="text" class="form-control" id="industries" name="industries" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Education
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="bachelor_degree" class="text-dark">Bachelor's Degree:</label>
+                    <input type="text" class="form-control" id="bachelor_degree" name="bachelor_degree" required>
+                </div>
+                <div class="form-group">
+                    <label for="bachelor_field" class="text-dark">Bachelor's Field:</label>
+                    <input type="text" class="form-control" id="bachelor_field" name="bachelor_field" required>
+                </div>
+                <div class="form-group">
+                    <label for="bachelor_institute" class="text-dark">Bachelor's Institute:</label>
+                    <input type="text" class="form-control" id="bachelor_institute" name="bachelor_institute" required>
+                </div>
+                <div class="form-group">
+                    <label for="master_degree" class="text-dark">Master's Degree:</label>
+                    <input type="text" class="form-control" id="master_degree" name="master_degree" required>
+                </div>
+                <div class="form-group">
+                    <label for="master_field" class="text-dark">Master's Field:</label>
+                    <input type="text" class="form-control" id="master_field" name="master_field" required>
+                </div>
+                <div class="form-group">
+                    <label for="master_institute" class="text-dark">Master's Institute:</label>
+                    <input type="text" class="form-control" id="master_institute" name="master_institute" required>
+                </div>
+                <div class="form-group">
+                    <label for="phd_degree" class="text-dark">PhD Degree:</label>
+                    <input type="text" class="form-control" id="phd_degree" name="phd_degree" required>
+                </div>
+                <div class="form-group">
+                    <label for="phd_field" class="text-dark">PhD Field:</label>
+                    <input type="text" class="form-control" id="phd_field" name="phd_field" required>
+                </div>
+                <div class="form-group">
+                    <label for="phd_institute" class="text-dark">PhD Institute:</label>
+                    <input type="text" class="form-control" id="phd_institute" name="phd_institute" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                Industry Projects
+            </div>
+            <div class="card-body bg-light">
+                <div class="form-group">
+                    <label for="industry_projects" class="text-dark">Industry Projects (comma-separated):</label>
+                    <input type="text" class="form-control" id="industry_projects" name="industry_projects" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg btn-block">Submit</button>
+    </form>
+</div>
+{% endblock %}

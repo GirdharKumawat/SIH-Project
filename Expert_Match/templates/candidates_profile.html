@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block title %}List Of Candidates{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  {% include "navbar.html" %}
+  
+  <div class="row mt-4">
+    <div class="col-12">
+      <h1 class="text-center mb-4">Candidate Details</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">Personal Information</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <p><strong>Name: </strong><span class="text-warning fw-bold fs-5">{{ candidate.personal_info.name }}</span></p>
+          <p><strong>Father's Name: </strong><span class="text-warning fw-bold">{{ candidate.personal_info.father_name }}</span></p>
+          <p><strong>Date of Birth:</strong> {{ candidate.personal_info.details.dob }}</p>
+          <p><strong>Religion:</strong> {{ candidate.personal_info.details.religion }}</p>
+          <p><strong>Mother Tongue:</strong> {{ candidate.personal_info.details.mother_tongue }}</p>
+          <p><strong>Marital Status:</strong> {{ candidate.personal_info.details.marital_status }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">Residence Information</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <h5>Permanent Residence:</h5>
+          <p>{{ candidate.personal_info.residence.permanent.place }}, {{ candidate.personal_info.residence.permanent.district }}, {{ candidate.personal_info.residence.permanent.state }}</p>
+          <h5>Present Residence:</h5>
+          <p>{{ candidate.personal_info.residence.present.place }}, {{ candidate.personal_info.residence.present.district }}, {{ candidate.personal_info.residence.present.state }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">Educational Background</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <table class="table table-striped text-light">
+            <thead class="bg-warning text-dark">
+              <tr>
+                <th>Qualification</th>
+                <th>Institution</th>
+                <th>Year</th>
+                <th>Marks (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for edu in candidate.education %}
+              <tr>
+                <td>{{ edu.qualification }}</td>
+                <td>{{ edu.institution }}</td>
+                <td>{{ edu.year }}</td>
+                <td>{{ edu.marks_percent }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">Physical Information</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <p><strong>Age:</strong> {{ candidate.physical_info.age.years }} years, {{ candidate.physical_info.age.months }} months</p>
+          <p><strong>Height:</strong> {{ candidate.physical_info.height }} meters</p>
+          <p><strong>Weight:</strong> {{ candidate.physical_info.weight }} kg</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">NCC Training</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <p><strong>Participated:</strong> {{ candidate.ncc_training.participated }}</p>
+          {% if candidate.ncc_training.participated == "Yes" %}
+          <p><strong>Wing:</strong> {{ candidate.ncc_training.details.wing }}</p>
+          <p><strong>Division:</strong> {{ candidate.ncc_training.details.division }}</p>
+          <p><strong>Certificate:</strong> {{ candidate.ncc_training.details.certificate }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h3 class="mb-0">Extra-Curricular Activities</h3>
+        </div>
+        <div class="card-body bg-dark text-light">
+          <h5>Sports:</h5>
+          <ul>
+            {% for sport in candidate.sports_participation %}
+            <li>{{ sport.game }} - {{ sport.achievement }}</li>
+            {% endfor %}
+          </ul>
+          <h5>Other Activities:</h5>
+          <ul>
+            {% for activity in candidate.extra_curricular %}
+            <li>{{ activity.activity }} - {{ activity.achievement }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
